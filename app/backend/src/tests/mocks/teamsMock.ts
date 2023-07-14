@@ -1,8 +1,4 @@
-type teamslistType = teamsType[];
-type teamsType = {
-  id: number,
-  teamName: string,
-}
+
 const teamsList = [
   {
     "id": 1,
@@ -18,8 +14,12 @@ const teamsList = [
   },
 ]
 
+const teamById = [{
+  "id": 3,
+  "teamName": "Botafogo"
+}]
+
 export {
   teamsList,
-  teamsType,
-  teamslistType,
+  teamById
 }

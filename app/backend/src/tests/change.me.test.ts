@@ -19,13 +19,13 @@
 
 //   // let chaiHttpResponse: Response;
 
-//   // before(async () => {
-//   //   sinon
-//   //     .stub(Example, "findOne")
-//   //     .resolves({
-//   //       ...<Seu mock>
-//   //     } as Example);
-//   // });
+  // before(async () => {
+  //   sinon
+  //     .stub(Example, "findOne")
+  //     .resolves({
+  //       ...<Seu mock>
+  //     } as Example);
+  // });
 
 //   // after(()=>{
 //   //   (Example.findOne as sinon.SinonStub).restore();
