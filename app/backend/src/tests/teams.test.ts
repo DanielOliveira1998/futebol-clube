@@ -6,7 +6,6 @@ import SequelizeTeams from '../database/models/SequelizeTeams'
 import { teamsList, teamById } from './mocks/teamsMock';
 
 import { App } from '../app';
-import Example from '../database/models/ExampleModel';
 
 import { Response } from 'superagent';
 
@@ -41,7 +40,7 @@ describe('Teams teste', () => {
       sinon.stub(SequelizeTeams, 'findOne').resolves(null);
       const { status, body } = await chai.request(app).get('/books/33');
       expect(status).to.equal(404);
-      expect(body.message).to.equal('Not Found');
+      expect(body).to.deep.equal({});
     })
   })
 });

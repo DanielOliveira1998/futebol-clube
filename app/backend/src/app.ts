@@ -1,5 +1,6 @@
 import * as express from 'express';
-import teamRouter from './routes/index';
+import * as cors from 'cors';
+import router from './routes/index';
 
 class App {
   public app: express.Express;
@@ -8,6 +9,7 @@ class App {
     this.app = express();
 
     this.config();
+    this.app.use(cors());
     this.routes();
 
     // Não remover essa rota
@@ -15,7 +17,7 @@ class App {
   }
 
   private routes():void {
-    this.app.use(teamRouter);
+    this.app.use(router);
   }
 
   private config():void {
