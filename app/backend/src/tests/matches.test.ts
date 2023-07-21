@@ -27,11 +27,11 @@ describe('Teams teste', () => {
       expect(status).to.equal(200);
       expect(body).to.deep.equal(matchesList);
     });
-    it.only('O endpoint retorna a lista de partidas de acordo com o filtro inProgress', async () => {
+    it('O endpoint retorna a lista de partidas de acordo com o filtro inProgress', async () => {
       sinon.stub(SequelizeMatches, 'findAll').resolves(filteredList as any);
       const { status, body } = await chai.request(app).get('/matches?inProgress=true');
       expect(status).to.equal(200);
       expect(body).to.deep.equal(filteredList);
-    })
+    });
   });
 })
