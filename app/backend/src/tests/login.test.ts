@@ -29,6 +29,10 @@ describe('Login test', () => {
       expect(status).to.equal(200);
       expect(body).to.haveOwnProperty('token');
     })
+    // it('Rota login/role recebe o token no parâmetro auhorization', async () => {
+    //   const { status, body } = await chai.request(app).get('/login/role').set('authorization', 'bearer test-test');
+
+    // })
   });
   describe('Requisição invalida', () => {
     it('Email inválido', async () => {
