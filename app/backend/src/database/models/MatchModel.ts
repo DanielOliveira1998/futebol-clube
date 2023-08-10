@@ -18,4 +18,9 @@ export default class MatchModel implements IMatchModel {
     const dbData = await this.model.findAll({ ...filterSelect });
     return dbData;
   }
+
+  async finishMatch(id: number) {
+    await this.model.update({ inProgress: false }, { where: { id } });
+    return { message: 'Finished' };
+  }
 }

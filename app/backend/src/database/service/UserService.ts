@@ -19,7 +19,6 @@ export default class UserService {
 
   public async getUserRole(email: string): Promise<ServiceResponse<IUser>> {
     const user = await this.userModel.findByEmail(email);
-    console.log('User ', user);
     if (!user) return { status: 'NOT_FOUND', data: { message: 'Token must be a valid toke' } };
     return { status: 'SUCCESSFUL', data: user };
   }

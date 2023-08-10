@@ -13,4 +13,9 @@ export default class TeamService {
     const allMatches = await this.matchModel.findall(filter);
     return { status: 'SUCCESSFUL', data: allMatches };
   }
+
+  public async finishMatch(id: number) {
+    const dbData = await this.matchModel.finishMatch(id);
+    return { status: 'SUCCESSFUL', data: dbData };
+  }
 }
