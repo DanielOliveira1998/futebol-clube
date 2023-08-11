@@ -18,4 +18,9 @@ export default class TeamService {
     const dbData = await this.matchModel.finishMatch(id);
     return { status: 'SUCCESSFUL', data: dbData };
   }
+
+  public async updateScoreboard(id: number, homeScore: number, awayScore: number) {
+    const dbData = await this.matchModel.updateScoreboard(id, homeScore, awayScore);
+    return { status: 'SUCCESSFUL', data: dbData };
+  }
 }

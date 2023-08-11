@@ -7,6 +7,12 @@ const matchController = new MatchController();
 const router = Router();
 
 router.patch(
+  '/:id',
+  validateToken.validateAuthentication,
+  (req: Request, res: Response) => matchController.updateScoreboard(req, res),
+);
+
+router.patch(
   '/:id/finish',
   validateToken.validateAuthentication,
   (req: Request, res: Response) => matchController.finishMatch(req, res),

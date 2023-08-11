@@ -23,4 +23,12 @@ export default class MatchModel implements IMatchModel {
     await this.model.update({ inProgress: false }, { where: { id } });
     return { message: 'Finished' };
   }
+
+  async updateScoreboard(id: number, homeScore: number, awayScore: number) {
+    await this.model.update(
+      { homeTeamGoals: homeScore, awayTeamGoals: awayScore },
+      { where: { id } },
+    );
+    return { message: 'Scoreboard updated' };
+  }
 }
