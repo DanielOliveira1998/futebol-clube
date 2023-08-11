@@ -1,4 +1,5 @@
 import { IMatch } from '../../Interfaces/IMatch';
+import { ICreatedMatch } from '../../Interfaces/ICretedMatch';
 import { IMatchModel } from '../../Interfaces/IMatchModel';
 import SequelizeMatches from './SequelizeMatches';
 import SequelizeTeams from './SequelizeTeams';
@@ -30,5 +31,16 @@ export default class MatchModel implements IMatchModel {
       { where: { id } },
     );
     return { message: 'Scoreboard updated' };
+  }
+
+  async createMatch(math: ICreatedMatch) {
+    const mathCreated = await this.model.create({
+      homeTeamId: math.homeTeamId,
+      awayTeamId: math.awayTeamId,
+      homeTeamGoals: math.homeTeamGoals,
+      awayTeamGoals: math.awayTeamGoals,
+      inProgress: true,
+    });
+    return mathCreated;
   }
 }

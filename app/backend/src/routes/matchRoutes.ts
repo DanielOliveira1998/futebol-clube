@@ -23,4 +23,10 @@ router.get(
   (req: Request, res: Response) => matchController.getAllMatches(req, res),
 );
 
+router.post(
+  '/',
+  validateToken.validateAuthentication,
+  (req: Request, res: Response) => matchController.createMath(req, res),
+);
+
 export default router;

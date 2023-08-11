@@ -25,4 +25,14 @@ export default class TeamController {
       .updateScoreboard(Number(id), homeTeamGoals, awayTeamGoals);
     return res.status(200).json(response.data);
   }
+
+  public async createMath(req: Request, res: Response) {
+    const { homeTeamGoals, awayTeamGoals, homeTeamId, awayTeamId } = req.body;
+    const response = await this.matchService
+      .crateMath(homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals);
+    if (response.status === 'NOT_FOUND') {
+      return res.status(404).json(response.data);
+    }
+    return res.status(201).json(response.data);
+  }
 }
