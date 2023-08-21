@@ -3,7 +3,7 @@ import TeamModel from '../models/TeamModel';
 import { IMatchModel } from '../../Interfaces/IMatchModel';
 import { ITeamModel } from '../../Interfaces/ITeamModel';
 import { ServiceResponse } from '../../Interfaces/ServiceResponse';
-import homeTeams from '../../Utils/scoreboardConfig';
+import homeTeamSort from '../../Utils/scoreboardConfig';
 
 export default class LeaderboardService {
   constructor(
@@ -14,7 +14,7 @@ export default class LeaderboardService {
   public async getScoreboard(): Promise<ServiceResponse<unknown>> {
     const finishedMatches = await this.matchModel.getAllFinishedMatches();
     const allTeams = await this.teamModel.findall();
-    const homeScore = homeTeams(finishedMatches, allTeams);
+    const homeScore = homeTeamSort(finishedMatches, allTeams);
     return { status: 'SUCCESSFUL', data: homeScore };
   }
 }
