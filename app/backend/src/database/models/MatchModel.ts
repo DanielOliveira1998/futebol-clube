@@ -43,4 +43,15 @@ export default class MatchModel implements IMatchModel {
     });
     return mathCreated;
   }
+
+  public async getAllFinishedMatches(): Promise<IMatch[]> {
+    const finishedMatches = await this.model.findAll({
+      where: { inProgress: false },
+      include: [
+        { model: SequelizeTeams, as: 'homeTeam' },
+        { model: SequelizeTeams, as: 'awayTeam' },
+      ],
+    });
+    return finishedMatches;
+  }
 }

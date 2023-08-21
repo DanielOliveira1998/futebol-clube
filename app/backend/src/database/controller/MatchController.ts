@@ -9,7 +9,7 @@ export default class TeamController {
   public async getAllMatches(req: Request, res: Response) {
     const { inProgress } = req.query;
     const response = await this.matchService.getAllMatches(inProgress as string);
-    res.status(200).json(response.data);
+    return res.status(200).json(response.data);
   }
 
   public async finishMatch(req: Request, res: Response) {
